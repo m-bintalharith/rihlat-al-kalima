@@ -4,6 +4,8 @@
 
 **Open the app:** https://m-bintalharith.github.io/rihlat-al-kalima/
 
+> 🚧 **Work in progress.** The Arabic texts have not yet been checked against printed editions, some passages are shortened, and full source references are still to be added. Please don’t quote from the app until this is done. Corrections are very welcome: see Feedback below.
+
 ## The texts
 
 **Travel accounts · أَدَبُ الرِّحْلَاتِ**
@@ -35,19 +37,33 @@
 - **Reading options:** whole text or by section, continuous or by sentence, Arabic size and font, and colour by word type.
 - **Timeline:** browse the texts by date.
 
-## A note on the texts
+## Still to do
 
-The Arabic passages were prepared for learners. Some are shortened, and they should be checked against the standard editions before being quoted:
+**Texts and sources**
+- [ ] Check every Arabic passage against a standard edition and correct the wording:
+  - Ibn Hisham for the Farewell Sermon
+  - al-Tabari for Yarmouk
+  - al-Maqqari for Tariq ibn Ziyad
+  - al-Dahhan for Ibn Fadlan
+  - Wright for Ibn Jubayr
+  - Defrémery–Sanguinetti for Ibn Battuta
+  - ʿAzzām for Kalila wa-Dimna
+  - al-Ḥājirī for al-Bukhalāʾ
+  - Hitti for Kitāb al-Iʿtibār
+- [ ] Add a full reference (edition, volume, page) for each passage
+- [ ] Restore passages that were shortened, or mark clearly where text is left out
+- [ ] Review the tashkeel and case endings
+- [ ] Review the English translations against the checked Arabic
 
-- Ibn Hisham for the Farewell Sermon
-- al-Tabari for Yarmouk
-- al-Maqqari for Tariq ibn Ziyad
-- al-Dahhan for Ibn Fadlan
-- Wright for Ibn Jubayr
-- Defrémery–Sanguinetti for Ibn Battuta
-- ʿAzzām for Kalila wa-Dimna
-- al-Ḥājirī for al-Bukhalāʾ
-- Hitti for Kitāb al-Iʿtibār
+**Language notes**
+- [ ] Check the verb conjugation tables, especially hamzated and irregular verbs
+- [ ] Check the word notes, roots and background on people and places
+
+**App**
+- [ ] Test on phones and tablets
+- [ ] Improve read-aloud (it depends on the Arabic voices on the device)
+- [ ] Check accessibility: keyboard use and screen readers
+- [ ] Add more texts
 
 The English translations are original to this app.
 

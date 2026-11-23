@@ -63,7 +63,7 @@
 - [ ] Test on phones and tablets
 - [ ] Fix read-aloud: it currently doesn't play. Possible causes are no Arabic voice on the device, a Chrome bug when speech is cancelled and restarted, and speech stopping on long sentences. Show a message with setup steps when no Arabic voice is found.
 - [ ] Add Wikipedia links (English and Arabic) for people and places
-- [ ] Show the lead Wikipedia image for places and suitable people (none for the Prophet ﷺ, the Companions, or God). Images will only load on the GitHub Pages version.
+- [ ] Show the lead Wikipedia image for places and people. Images will only load on the GitHub Pages version.
 - [ ] Check accessibility: keyboard use and screen readers
 - [ ] Add more texts
 

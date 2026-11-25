@@ -1801,8 +1801,8 @@ function curText(){return TEXTS.find(x=>x.id===curPass().text)}
 const mainEl=document.querySelector('main.app'); const holder=document.createElement('div'); holder.hidden=true; document.body.appendChild(holder);
 const CATS=[{id:"acc",en:"Travel accounts",ar:"أَدَبُ الرِّحْلَاتِ"},{id:"sp",en:"Speeches and sermons",ar:"الْخُطَبُ"},{id:"pr",en:"Stories and memoirs",ar:"الْحِكَايَاتُ وَالسِّيَرُ"}];
 const YEARS={rihla:1325,fadlan:922,jubayr:1184,wada:632,khalid:636,tariq:711,kalila:750,jahiz:850,usama:1183};
-const TL=[{id:"wada",y:632,t:"Farewell Sermon",d:"10 AH · 632",pos:"up1 l"},{id:"khalid",y:636,t:"Khalid (RA) at Yarmouk",d:"15 AH · 636",pos:"dn1 r"},{id:"tariq",y:711,t:"Tariq ibn Ziyad",d:"92 AH · 711",pos:"up1 r"},
- {id:"kalila",y:750,t:"Kalila and Dimna",d:"c. 133 AH · c. 750",pos:"dn2 r"},{id:"jahiz",y:850,t:"Al-Jahiz’s Misers",d:"c. 235 AH · c. 850",pos:"dn1 r"},
+const TL=[{id:"wada",y:632,t:"Farewell Sermon",d:"10 AH · 632",pos:"up1 l"},{id:"khalid",y:636,t:"Khalid ibn al-Walid’s (RA) speech",d:"15 AH · 636",pos:"dn1 r"},{id:"tariq",y:711,t:"Tariq ibn Ziyad",d:"92 AH · 711",pos:"up1 l"},
+ {id:"kalila",y:750,t:"Kalila and Dimna",d:"c. 133 AH · c. 750",pos:"up1 r"},{id:"jahiz",y:850,t:"Al-Jahiz’s Misers",d:"c. 235 AH · c. 850",pos:"dn1 r"},
  {id:"fadlan",y:922,t:"Ibn Fadlan and the Rus",d:"310 AH · 922",pos:"up1 r"},{id:"usama",y:1183,t:"Usama ibn Munqidh",d:"c. 578 AH · c. 1183",pos:"up1 r"},{id:"jubayr",y:1184,t:"Ibn Jubayr in Sicily",d:"580 AH · 1184–85",pos:"dn2 r"},{id:"rihla",y:1325,t:"Ibn Battuta sets out",d:"725 AH · 1325",pos:"dn1 l"}];
 function renderTimeline(){
   const a=550,b=1400,pc=y=>((y-a)/(b-a)*100).toFixed(2)+'%';

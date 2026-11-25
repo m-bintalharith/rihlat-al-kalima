@@ -395,6 +395,40 @@ table.conj td.pr small{font-size:12px}
 .slot-x:hover,.slot-x:focus-visible{border-color:var(--c,var(--accent));color:var(--c,var(--accent))}
 .toc li .slot .app{padding:14px 0 28px}
 @media(max-width:600px){.toc li .slot{margin:16px -8px 8px;padding:2px 12px 8px;border-radius:12px}.toc li .slot::before{left:22px}.slot-t{display:none}.slot-bar{justify-content:flex-end}}
+
+/* ===== Book view ===== */
+:root{--paper:#fffcf3;--frame:rgba(150,118,60,.38);--fold:rgba(110,80,30,.10)}
+:root[data-theme=dark]{--paper:#1b2131;--frame:rgba(210,180,120,.25);--fold:rgba(0,0,0,.5)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#1b2131;--frame:rgba(210,180,120,.25);--fold:rgba(0,0,0,.5)}}
+.toc li .slot{background:none;border:0;box-shadow:none;padding:0;margin:14px -14px 8px;border-radius:0}
+.toc li .slot::before{display:none}
+.slot-bar{border:0;padding:0 2px 10px;justify-content:flex-end}
+.slot-t{display:none}
+.slot-x{border:0;border-radius:0;padding:4px 6px;min-height:32px;font-family:var(--f-en);font-style:italic;font-size:14px;color:var(--muted)}
+.slot-x:hover,.slot-x:focus-visible{text-decoration:underline;color:var(--c)}
+.toc li .slot .app{padding:0 0 34px}
+.toc li .slot .reader{position:relative;max-width:none;background:var(--paper);border-radius:3px;padding:52px 44px 48px;
+ box-shadow:inset 0 0 0 16px var(--paper),inset 0 0 0 17px var(--frame),inset 0 0 0 20px var(--paper),inset 0 0 0 21px var(--frame),
+ 0 0 0 1px var(--line),0 4px 0 -1px var(--paper),0 4px 0 0 var(--line),0 8px 0 -2px var(--paper),0 8px 0 -1px var(--line),0 30px 44px -28px rgba(60,40,10,.55)}
+.toc li .slot .passage-head{padding:0 12px 14px;margin-bottom:16px;box-shadow:none;border-bottom:0;background:linear-gradient(var(--frame),var(--frame)) bottom/100% 1px no-repeat}
+.toc li .slot .passage-head h2{font-variant:small-caps;letter-spacing:.04em;font-size:25px}
+.toc li .slot .passage-head .meta{font-style:italic;letter-spacing:.02em}
+.toc li .slot .intro{font-style:italic}
+.toc li .slot .reader::before{content:"";position:absolute;top:-5px;left:calc(56px + (100% - 136px)/2.3 + 12px - 9px);width:18px;height:84px;background:var(--c,var(--accent));clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);filter:drop-shadow(0 2px 1px rgba(0,0,0,.2));z-index:3}
+.toc li .slot .flow,.toc li .slot .row,.toc li .slot .sech{position:relative}
+.toc li .slot .flow::after,.toc li .slot .row::after,.toc li .slot .sech::after{content:"";position:absolute;top:0;bottom:0;width:56px;transform:translateX(-50%);pointer-events:none;
+ background:linear-gradient(90deg,transparent,var(--fold) 42%,rgba(110,80,30,.05) 50%,var(--fold) 58%,transparent)}
+.toc li .slot .flow::after{left:calc(12px + (100% - 60px)/2.3 + 18px)}
+.toc li .slot .row::after{left:calc(12px + (100% - 48px)/2.3 + 12px)}
+.toc li .slot .sech::after{left:calc((100% - 24px)/2.3 + 12px);top:-30px;bottom:-12px;-webkit-mask-image:linear-gradient(transparent,#000 60px);mask-image:linear-gradient(transparent,#000 60px)}
+body.mode-ar .toc li .slot .flow::after,body.mode-ar .toc li .slot .row::after,body.mode-ar .toc li .slot .sech::after,body.mode-ar .toc li .slot .reader::before{display:none}
+.toc li .slot .sech h3{font-variant:small-caps;letter-spacing:.03em}
+@media (max-width:720px){
+ .toc li .slot{margin:12px -10px 8px}
+ .toc li .slot .reader{padding:36px 18px 30px;box-shadow:inset 0 0 0 8px var(--paper),inset 0 0 0 9px var(--frame),0 0 0 1px var(--line),0 4px 0 -1px var(--paper),0 4px 0 0 var(--line),0 20px 30px -22px rgba(60,40,10,.5)}
+ .toc li .slot .flow::after,.toc li .slot .row::after,.toc li .slot .sech::after{display:none}
+ .toc li .slot .reader::before{left:auto;right:28px;height:52px}
+}
 </style>
 </head>
 <body>
@@ -1925,7 +1959,7 @@ function renderChapters(){
   renderTimeline();
   const item=(x,i)=>{const open=S.open===x.id; return `<li class="${open?'cur open':''}" data-text="${x.id}" data-cat="${x.cat}"><span class="num">${ROM[i]}.</span><div>
     <a class="ttl" href="#${x.id}" data-t="${x.id}" aria-expanded="${open}"><span class="chev" aria-hidden="true">${open?'▾':'▸'}</span><span class="t">${fmtT(x.title)}</span><span class="lead" aria-hidden="true"></span><span class="n" lang="ar" dir="rtl">${fmtT(x.ar)}</span></a>
-    <div class="subs"><span class="by">${esc(x.by)}</span>${x.sections.map((p,j)=>`<a href="#${p.id}" data-sec="${p.id}" ${open&&S.lastSec===p.id?'aria-current="page"':''}>${j+1}. ${esc(p.title)}</a>`).join('')}</div></div>${open?`<div class="slot" role="region" aria-label="${esc(plainT(x.title))}"><div class="slot-bar"><span class="slot-t">Reading: ${fmtT(x.title)}</span><button type="button" class="slot-x" data-close>Close text <span aria-hidden="true">✕</span></button></div></div>`:''}</li>`};
+    <div class="subs"><span class="by">${esc(x.by)}</span>${x.sections.map((p,j)=>`<a href="#${p.id}" data-sec="${p.id}" ${open&&S.lastSec===p.id?'aria-current="page"':''}>${j+1}. ${esc(p.title)}</a>`).join('')}</div></div>${open?`<div class="slot" role="region" aria-label="${esc(plainT(x.title))}"><div class="slot-bar"><span class="slot-t">Reading: ${fmtT(x.title)}</span><button type="button" class="slot-x" data-close>Close book</button></div></div>`:''}</li>`};
   document.getElementById('toc').innerHTML=CATS.map(c=>{const list=TEXTS.filter(x=>x.cat===c.id).sort((a,b)=>YEARS[a.id]-YEARS[b.id]);
     return `<li class="cat"><span class="ce">${c.en}</span><span class="ca" lang="ar">${c.ar}</span></li>`+list.map(item).join('');}).join('');
   if(S.open){const slot=document.querySelector(`#toc li[data-text="${S.open}"] .slot`); if(slot) slot.appendChild(mainEl);}

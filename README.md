@@ -17,11 +17,13 @@
 - The Prophet’s ﷺ Farewell Sermon, 632 CE
 - Khalid ibn al-Walid’s (RA) address at Yarmouk, 636 CE
 - Tariq ibn Ziyad’s speech, 711 CE
+- The first Friday sermon in al-Aqsa after Salahuddin recovered Jerusalem, 1187 CE
 
 **Stories and memoirs · الْحِكَايَاتُ وَالسِّيَرُ**
 - Kalila and Dimna: three fables, c. 750 CE
 - Al-Jahiz’s Book of Misers: three anecdotes, c. 850 CE
 - Usama ibn Munqidh among the Franks: three episodes, c. 1183 CE
+- Ibn Shaddad’s Life of Salahuddin: three passages, after 1193 CE
 
 ## Features
 
@@ -50,6 +52,8 @@
   - ʿAzzām for Kalila wa-Dimna
   - al-Ḥājirī for al-Bukhalāʾ
   - Hitti for Kitāb al-Iʿtibār
+  - Ibn Khallikān and Abū Shāma for Ibn al-Zakī’s sermon
+  - the Shayyāl edition for Ibn Shaddad’s al-Nawādir al-Sulṭāniyya
 - [ ] Add a full reference (edition, volume, page) for each passage
 - [ ] Restore passages that were shortened, or mark clearly where text is left out
 - [ ] Review the tashkeel and case endings

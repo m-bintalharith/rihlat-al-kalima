@@ -15,7 +15,7 @@
 
 **Speeches and sermons · الْخُطَبُ**
 - The Prophet’s ﷺ Farewell Sermon, 632 CE
-- Khalid ibn al-Walid’s رضي الله عنه address at Yarmouk, 636 CE
+- Khalid ibn al-Walid’s <picture><source media="(prefers-color-scheme: dark)" srcset="img/ra-dark.png"><img src="img/ra-light.png" alt="رضي الله عنه" height="26" align="absmiddle"></picture> address at Yarmouk, 636 CE
 - Tariq ibn Ziyad’s speech, 711 CE
 
 **Stories and memoirs · الْحِكَايَاتُ وَالسِّيَرُ**

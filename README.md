@@ -4,6 +4,8 @@
 
 **Open the app:** https://m-bintalharith.github.io/rihlat-al-kalima/
 
+**Book view (test design):** https://m-bintalharith.github.io/rihlat-al-kalima/book.html
+
 > 🚧 **Work in progress.** The Arabic texts have not yet been checked against printed editions, some passages are shortened, and full source references are still to be added. Please don’t quote from the app until this is done. Corrections are very welcome: see Feedback below.
 
 ## The texts
@@ -76,6 +78,7 @@ The English translations are original to this app.
 ## Files
 
 - `index.html`: the whole app in a single page, with no build step and nothing to install
+- `book.html`: the same app with a test design that shows the open text as a book
 - `img/`: the header map, in light and dark versions, inspired by the Piri Reis map
 
 ## Feedback

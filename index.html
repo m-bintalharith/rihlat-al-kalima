@@ -385,6 +385,15 @@ table.conj td.pr small{font-size:12px}
 .tl .ev.up1 .stem{top:42px;height:32px}.tl .ev.up1 .lab{top:4px}
 .tl .ev.dn1 .stem{top:88px;height:28px}.tl .ev.dn1 .lab{top:116px}
 .tl .ev.dn2 .stem{top:88px;height:70px}.tl .ev.dn2 .lab{top:158px}
+.toc li[data-cat=acc]{--c:var(--accent)}.toc li[data-cat=sp]{--c:var(--verb)}.toc li[data-cat=pr]{--c:var(--cobalt)}
+.toc li .slot{position:relative;margin:20px -14px 10px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c,var(--accent));border-radius:16px;box-shadow:0 18px 40px -24px rgba(60,40,10,.45),0 2px 8px rgba(60,40,10,.06);padding:4px 26px 10px}
+.toc li .slot::before{content:"";position:absolute;top:-13px;left:40px;border:9px solid transparent;border-top:0;border-bottom:9px solid var(--c,var(--accent))}
+.slot-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 10px;border-bottom:1px solid var(--line)}
+.slot-t{font-size:13px;color:var(--c,var(--accent));font-weight:600}
+.slot-x{font:inherit;font-size:13px;background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 14px;min-height:34px;color:inherit;cursor:pointer}
+.slot-x:hover,.slot-x:focus-visible{border-color:var(--c,var(--accent));color:var(--c,var(--accent))}
+.toc li .slot .app{padding:14px 0 28px}
+@media(max-width:600px){.toc li .slot{margin:16px -8px 8px;padding:2px 12px 8px;border-radius:12px}.toc li .slot::before{left:22px}.slot-t{display:none}.slot-bar{justify-content:flex-end}}
 </style>
 </head>
 <body>
@@ -1809,9 +1818,9 @@ function renderChapters(){
   document.getElementById('nowReading').textContent=plainT(T.title);
   holder.appendChild(mainEl);
   renderTimeline();
-  const item=(x,i)=>{const open=S.open===x.id; return `<li class="${open?'cur open':''}" data-text="${x.id}"><span class="num">${ROM[i]}.</span><div>
+  const item=(x,i)=>{const open=S.open===x.id; return `<li class="${open?'cur open':''}" data-text="${x.id}" data-cat="${x.cat}"><span class="num">${ROM[i]}.</span><div>
     <a class="ttl" href="#${x.id}" data-t="${x.id}" aria-expanded="${open}"><span class="chev" aria-hidden="true">${open?'▾':'▸'}</span><span class="t">${fmtT(x.title)}</span><span class="lead" aria-hidden="true"></span><span class="n" lang="ar" dir="rtl">${fmtT(x.ar)}</span></a>
-    <div class="subs"><span class="by">${esc(x.by)}</span>${x.sections.map((p,j)=>`<a href="#${p.id}" data-sec="${p.id}" ${open&&S.lastSec===p.id?'aria-current="page"':''}>${j+1}. ${esc(p.title)}</a>`).join('')}</div></div>${open?'<div class="slot"></div>':''}</li>`};
+    <div class="subs"><span class="by">${esc(x.by)}</span>${x.sections.map((p,j)=>`<a href="#${p.id}" data-sec="${p.id}" ${open&&S.lastSec===p.id?'aria-current="page"':''}>${j+1}. ${esc(p.title)}</a>`).join('')}</div></div>${open?`<div class="slot" role="region" aria-label="${esc(plainT(x.title))}"><div class="slot-bar"><span class="slot-t">Reading: ${fmtT(x.title)}</span><button type="button" class="slot-x" data-close>Close text <span aria-hidden="true">✕</span></button></div></div>`:''}</li>`};
   document.getElementById('toc').innerHTML=CATS.map(c=>{const list=TEXTS.filter(x=>x.cat===c.id).sort((a,b)=>YEARS[a.id]-YEARS[b.id]);
     return `<li class="cat"><span class="ce">${c.en}</span><span class="ca" lang="ar">${c.ar}</span></li>`+list.map(item).join('');}).join('');
   if(S.open){const slot=document.querySelector(`#toc li[data-text="${S.open}"] .slot`); if(slot) slot.appendChild(mainEl);}
@@ -2150,6 +2159,7 @@ function goTo(h,fromClick){
 function closeText(){ S.open=null; S.lastSec=null; store('open',null); renderChapters(); try{history.replaceState(null,'',location.pathname+location.search)}catch(e){} }
 document.getElementById('timeline').addEventListener('click',e=>{const b=e.target.closest('[data-tl]'); if(!b) return; if(S.open===b.dataset.tl) closeText(); else goTo(b.dataset.tl,true);});
 document.getElementById('toc').addEventListener('click',e=>{
+  if(e.target.closest('[data-close]')){e.preventDefault();ttsStop();closeText();return}
   const a=e.target.closest('a'); if(!a) return; e.preventDefault();
   if(a.dataset.t){ if(S.open===a.dataset.t) closeText(); else goTo(a.dataset.t,true); return; }
   if(a.dataset.sec){ const sec=ALLP.find(p=>p.id===a.dataset.sec); if(S.open===sec.text&&S.lastSec===sec.id) closeText(); else goTo(sec.id,true); }

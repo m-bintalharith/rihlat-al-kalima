@@ -400,6 +400,10 @@ table.conj td.pr small{font-size:12px}
 @media (min-width:1000px){html{zoom:.92}}
 @media (min-width:1200px){html{zoom:.85}}
 
+/* Arabic only: centre the column instead of leaving space on the right */
+body.mode-ar .reader{margin-inline:auto}
+body.mode-ar .flow,body.mode-ar .sech{margin-inline:auto}
+
 /* ===== Book view ===== */
 :root{--paper:#fffcf3;--frame:rgba(150,118,60,.38);--fold:rgba(110,80,30,.10)}
 :root[data-theme=dark]{--paper:#1b2131;--frame:rgba(210,180,120,.25);--fold:rgba(0,0,0,.5)}
@@ -433,6 +437,7 @@ body.mode-ar .toc li .slot .flow::after,body.mode-ar .toc li .slot .row::after,b
  .toc li .slot .flow::after,.toc li .slot .row::after,.toc li .slot .sech::after{display:none}
  .toc li .slot .reader::before{left:auto;right:28px;height:52px}
 }
+body.mode-ar .toc li .slot .reader{max-width:980px;margin-inline:auto}
 </style>
 </head>
 <body>

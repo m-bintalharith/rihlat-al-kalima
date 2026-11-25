@@ -396,6 +396,10 @@ table.conj td.pr small{font-size:12px}
 .toc li .slot .app{padding:14px 0 28px}
 @media(max-width:600px){.toc li .slot{margin:16px -8px 8px;padding:2px 12px 8px;border-radius:12px}.toc li .slot::before{left:22px}.slot-t{display:none}.slot-bar{justify-content:flex-end}}
 
+/* Laptop and desktop: scale the whole page down a little */
+@media (min-width:1000px){html{zoom:.92}}
+@media (min-width:1200px){html{zoom:.85}}
+
 /* ===== Book view ===== */
 :root{--paper:#fffcf3;--frame:rgba(150,118,60,.38);--fold:rgba(110,80,30,.10)}
 :root[data-theme=dark]{--paper:#1b2131;--frame:rgba(210,180,120,.25);--fold:rgba(0,0,0,.5)}

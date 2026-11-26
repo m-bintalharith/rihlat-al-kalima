@@ -48,7 +48,7 @@
   - al-Maqqari for Tariq ibn Ziyad
   - al-Dahhan for Ibn Fadlan
   - Wright for Ibn Jubayr
-  - Defrémery–Sanguinetti for Ibn Battuta
+  - Defrémery–Sanguinetti for Ibn Battuta *(wording now checked against the al-Meshkat digital text; still to do: printed page references, and one reading in the Cairo passage, الْمُتَبَاهِيَة or الْمُتَنَاهِيَة)*
   - ʿAzzām for Kalila wa-Dimna
   - al-Ḥājirī for al-Bukhalāʾ
   - Hitti for Kitāb al-Iʿtibār
